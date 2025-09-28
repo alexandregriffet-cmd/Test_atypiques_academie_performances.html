@@ -1,1 +1,0 @@
-Déposez tous ces fichiers à la racine du repo GitHub Pages. Activez Pages (main / root).
