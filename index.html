@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Test de présomption – Cerveaux atypiques | Académie de Performances</title>
+  <title>Test de présomption – Cerveaux atypiques (v4)</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,9 +11,9 @@
   <img src="logo.png" alt="Académie de Performances – Alexandre Griffet" class="brand-logo" />
   <div class="titles center">
     <h1>Test de présomption – Cerveaux atypiques</h1>
-    <p class="subtitle">Repérage non diagnostique — ados & jeunes adultes</p>
+    <p class="subtitle">Version v4 – Affichage 1 question à la fois · Échelle 1→5 unifiée</p>
   </div>
-  <p class="disclaimer center">⚠️ Outil de <strong>repérage</strong> inspiré d’échelles validées (ASRS v1.1, AQ‑10, HSP/SPS, HAS/INSERM). Ne remplace pas une évaluation clinique.</p>
+  <p class="disclaimer center">⚠️ Outil de <strong>repérage</strong> inspiré d’échelles validées (ASRS v1.1, AQ‑10, HSP/SPS, HAS/INSERM). Ne remplace pas un diagnostic.</p>
 </header>
 
 <main id="app">
@@ -23,62 +23,54 @@
       <label>Prénom <input id="inp_name" type="text" placeholder="Prénom" /></label>
       <label>Âge <input id="inp_age" type="number" min="10" max="99" placeholder="16" /></label>
     </div>
+    <div class="legend">
+      <p><strong>Échelle utilisée pour toutes les questions :</strong></p>
+      <ul>
+        <li>1️⃣ Pas du tout vrai</li>
+        <li>2️⃣ Rarement vrai</li>
+        <li>3️⃣ Parfois vrai</li>
+        <li>4️⃣ Souvent vrai</li>
+        <li>5️⃣ Tout à fait vrai</li>
+      </ul>
+    </div>
+    <button id="start_btn">Commencer le test</button>
   </section>
 
-  <section class="card">
-    <h2>A) TDAH – items inspirés ASRS v1.1 (Partie A)</h2>
-    <p>Pour chaque affirmation, choisis la fréquence habituelle.</p>
-    <ol id="asrs_list" class="q-list"></ol>
-  </section>
-
-  <section class="card">
-    <h2>B) TSA léger / Asperger – items inspirés AQ‑10</h2>
-    <p>Réponds par Oui / Non.</p>
-    <ol id="aq10_list" class="q-list"></ol>
-  </section>
-
-  <section class="card">
-    <h2>C) Hypersensibilité sensorielle/émotionnelle – HSP/SPS</h2>
-    <p>Note de 1 (Pas du tout) à 5 (Tout à fait).</p>
-    <ol id="hsp_list" class="q-list"></ol>
-  </section>
-
-  <section class="card">
-    <h2>D) Troubles « Dys » – signaux d’alerte</h2>
-    <p>Coche les éléments qui te concernent (aujourd’hui ou depuis l’enfance).</p>
-    <ul id="dys_list" class="q-list"></ul>
-  </section>
-
-  <section class="card">
-    <h2>E) Indices de Haut Potentiel Intellectuel (HPI)</h2>
-    <p>Ces indices ne concluent pas au HPI. Ils aident à décider s’il faut passer un test WISC/WAIS.</p>
-    <ul id="hpi_list" class="q-list"></ul>
-  </section>
-
-  <section class="card actions">
-    <button id="btn_score">Voir le rapport</button>
-    <button id="btn_reset" class="ghost">Réinitialiser</button>
+  <section class="card runner hidden" id="runner">
+    <div class="progress">
+      <div class="progress-bar" id="progress_bar" style="width:0%"></div>
+    </div>
+    <p id="step_label" class="step-label"></p>
+    <h2 id="domain_label"></h2>
+    <div id="question_text" class="question"></div>
+    <div class="scale">
+      <label><input type="radio" name="answer" value="1"> 1 – Pas du tout vrai</label>
+      <label><input type="radio" name="answer" value="2"> 2 – Rarement vrai</label>
+      <label><input type="radio" name="answer" value="3"> 3 – Parfois vrai</label>
+      <label><input type="radio" name="answer" value="4"> 4 – Souvent vrai</label>
+      <label><input type="radio" name="answer" value="5"> 5 – Tout à fait vrai</label>
+    </div>
+    <div class="actions">
+      <button id="prev_btn" class="ghost">Précédent</button>
+      <button id="next_btn">Suivant</button>
+    </div>
   </section>
 
   <section id="report" class="card report hidden">
     <div class="report-header">
       <img src="logo.png" alt="Académie de Performances – Alexandre Griffet" class="brand-logo small" />
-      <h2>Rapport personnalisé</h2>
+      <h2>Rapport rapide</h2>
       <p id="rp_identity" class="identity"></p>
       <p class="timestamp" id="rp_time"></p>
     </div>
-    <div id="rp_intro" class="report-intro"></div>
     <div id="rp_summary"></div>
     <div id="rp_sections"></div>
-    <div id="rp_long"></div>
-    <div id="rp_cta" class="cta"></div>
-    <div class="print-note">💾 Pour enregistrer en PDF : <em>Ctrl/Cmd + P</em> → “Enregistrer au format PDF”.</div>
+    <div class="print-note">💾 Enregistrer en PDF : <em>Ctrl/Cmd + P</em> → “Enregistrer au format PDF”.</div>
   </section>
 </main>
 
 <footer class="footer">
   <p>© Académie de Performances – Alexandre Griffet | Outil de repérage. Ne remplace pas un diagnostic.</p>
-  <p><a href="#" id="legal_link">Mentions légales</a> · <a href="#" id="privacy_link">Politique de confidentialité</a></p>
 </footer>
 
 <script src="app.js"></script>
