@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Test de présomption – Cerveaux atypiques | Académie de Performances</title>
   <link rel="stylesheet" href="style.css" />
-  <meta name="description" content="Outil de repérage non diagnostique inspiré d’échelles validées (ASRS, AQ‑10, HSP/SPS, HAS/INSERM). Rapport narratif personnalisé.">
 </head>
 <body>
 <header class="header header--pmp">
@@ -14,7 +13,7 @@
     <h1>Test de présomption – Cerveaux atypiques</h1>
     <p class="subtitle">Repérage non diagnostique — ados & jeunes adultes</p>
   </div>
-  <p class="disclaimer center">⚠️ Cet outil est un <strong>repérage</strong> inspiré d’échelles validées (ASRS v1.1, AQ-10, HSP/SPS, HAS/INSERM) et ne remplace pas une évaluation clinique.</p>
+  <p class="disclaimer center">⚠️ Outil de <strong>repérage</strong> inspiré d’échelles validées (ASRS v1.1, AQ‑10, HSP/SPS, HAS/INSERM). Ne remplace pas une évaluation clinique.</p>
 </header>
 
 <main id="app">
@@ -26,35 +25,30 @@
     </div>
   </section>
 
-  <!-- Section A: TDAH ASRS-like -->
   <section class="card">
     <h2>A) TDAH – items inspirés ASRS v1.1 (Partie A)</h2>
     <p>Pour chaque affirmation, choisis la fréquence habituelle.</p>
     <ol id="asrs_list" class="q-list"></ol>
   </section>
 
-  <!-- Section B: TSA AQ-10 -->
   <section class="card">
     <h2>B) TSA léger / Asperger – items inspirés AQ‑10</h2>
     <p>Réponds par Oui / Non.</p>
     <ol id="aq10_list" class="q-list"></ol>
   </section>
 
-  <!-- Section C: Hypersensibilité HSP/SPS -->
   <section class="card">
     <h2>C) Hypersensibilité sensorielle/émotionnelle – HSP/SPS</h2>
     <p>Note de 1 (Pas du tout) à 5 (Tout à fait).</p>
     <ol id="hsp_list" class="q-list"></ol>
   </section>
 
-  <!-- Section D: Dys flags -->
   <section class="card">
     <h2>D) Troubles « Dys » – signaux d’alerte</h2>
     <p>Coche les éléments qui te concernent (aujourd’hui ou depuis l’enfance).</p>
     <ul id="dys_list" class="q-list"></ul>
   </section>
 
-  <!-- Section E: HPI indices -->
   <section class="card">
     <h2>E) Indices de Haut Potentiel Intellectuel (HPI)</h2>
     <p>Ces indices ne concluent pas au HPI. Ils aident à décider s’il faut passer un test WISC/WAIS.</p>
@@ -76,6 +70,7 @@
     <div id="rp_intro" class="report-intro"></div>
     <div id="rp_summary"></div>
     <div id="rp_sections"></div>
+    <div id="rp_long"></div>
     <div id="rp_cta" class="cta"></div>
     <div class="print-note">💾 Pour enregistrer en PDF : <em>Ctrl/Cmd + P</em> → “Enregistrer au format PDF”.</div>
   </section>

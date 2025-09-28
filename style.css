@@ -1,10 +1,6 @@
 :root{
-  --blue:#1f6feb; /* Références scientifiques */
-  --green:#2da44e; /* Conseils & exercices */
-  --orange:#f0883e; /* Astuces & motivation */
-  --ink:#0d1117;
-  --soft:#f6f8fa;
-  --line:#eaeef2;
+  --blue:#1f6feb; --green:#2da44e; --orange:#f0883e;
+  --ink:#0d1117; --soft:#f6f8fa; --line:#eaeef2;
 }
 *{box-sizing:border-box}
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;line-height:1.5;color:var(--ink);background:var(--soft);margin:0}
@@ -44,6 +40,9 @@ button.ghost{background:transparent;color:var(--ink);border:1px solid var(--line
 .btn-primary{background:var(--orange);color:#fff}
 .btn-outline{border:1px solid var(--line);color:var(--ink);background:#fff}
 .print-note{margin-top:12px;color:#444}
+.long-report{margin-top:16px}
+.long-report .module{border-left:4px solid var(--green);padding:10px;margin:10px 0;background:#f6fff8}
+.long-report h4{margin:4px 0 6px 0}
 @media print{
   .actions,.header,.footer{display:none !important}
   body{background:#fff}

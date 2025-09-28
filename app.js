@@ -1,14 +1,15 @@
-// --------- Liens CTA (à adapter) ---------
+// --------- Liens CTA ---------
 const LINKS = {
   PMP: "https://alexandregriffet-cmd.github.io/pmp_quiz_academie_performances.html",
-  RDV: "https://cal.com/", // Remplacer par ton lien de prise de RDV
+  RDV: "https://cal.com/", // Remplacer par ton lien
+  CONTACT: "mailto:contact@academiedeperformances.fr?subject=RDV%20Cerveaux%20Atypiques",
   TDAH: "https://www.has-sante.fr/jcms/c_468291/fr/trouble-deficit-de-lattention-avec-ou-sans-hyperactivite-tdah",
   TSA: "https://www.has-sante.fr/jcms/c_468172/fr/troubles-du-spectre-de-l-autisme-chez-l-enfant-et-l-adolescent",
   DYS: "https://www.has-sante.fr/jcms/c_2850017/fr/troubles-specifiques-du-langage-et-des-apprentissages-chez-l-enfant-dys-",
   HPI: "https://www.inserm.fr/dossier/intelligence-haut-potentiel/"
 };
 
-// --------- Questions ---------
+// --------- Items ---------
 const ASRS_ITEMS = [
   "Difficulté à terminer des tâches qui demandent de l’organisation",
   "Commencer plusieurs choses à la fois sans les terminer",
@@ -61,7 +62,7 @@ const HPI_ITEMS = [
   "Décalage ressenti avec les pairs ; perfectionnisme"
 ];
 
-// --------- Render helpers ---------
+// --------- Render questions ---------
 function renderASRS(){
   const host = document.getElementById('asrs_list');
   ASRS_ITEMS.forEach((q, i)=>{
@@ -122,17 +123,16 @@ function renderCheckList(items, idPrefix, hostId){
   });
 }
 
+// --------- Scoring ---------
 function getRadioValue(name){
   const el = document.querySelector(`input[name="${name}"]:checked`);
   return el ? Number(el.value) : null;
 }
-
-// --------- Scoring ---------
 function scoreASRS(){
   let positives = 0;
   for(let i=0;i<ASRS_ITEMS.length;i++){
     const v = getRadioValue(`asrs_${i}`);
-    if(v !== null && v >= 3) positives++; // Souvent(3) ou Très souvent(4)
+    if(v !== null && v >= 3) positives++;
   }
   const positive = positives >= 4;
   return {positives, positive};
@@ -171,45 +171,92 @@ function nowStr(){
   return d.toLocaleString('fr-FR', {dateStyle:'long', timeStyle:'short'});
 }
 
-// --------- Advice (résumés narratifs) ---------
+// --------- Narratif court ---------
 const NARRATIVE = {
-  intro: (name)=> `Bonjour ${name}, voici une lecture <strong>pédagogique et narrative</strong> de tes résultats. 
-  Elle sert à orienter vers des <em>bonnes pratiques</em> et, si besoin, vers un <strong>avis professionnel</strong> (elle ne pose pas de diagnostic).`,
-  TDAH: `Ton profil montre des signes d’inattention et/ou d’impulsivité qui peuvent impacter l’organisation et la régularité.
-  La bonne nouvelle : le TDAH répond bien à des aménagements très concrets (fractionnement, feedback rapide, routines courtes).`,
-  TSA: `Des préférences fortes pour la prévisibilité, la logique et des centres d’intérêt spécialisés peuvent indiquer un fonctionnement autistique léger.
-  L’objectif est d’outiller la compréhension sociale et d’organiser des routines rassurantes.`,
-  HSP: `Une sensibilité sensorielle et émotionnelle élevée peut être une <strong>force</strong> (intuition, finesse), à condition de protéger son énergie (pauses, environnement apaisant).`,
-  DYS: `Des difficultés spécifiques et durables en lecture/écriture/calcul ou motricité fine méritent des aménagements et un bilan pour identifier les aides les plus efficaces.`,
-  HPI: `Des indices d’aisance cognitive et de pensée en arborescence peuvent évoquer un haut potentiel.
-  Seul un test normé (WISC/WAIS) permet de conclure. En attendant, mise sur des défis stimulants et un mind mapping régulier.`
+  intro: (name)=> `Bonjour ${name}, voici une lecture <strong>pédagogique et narrative</strong> de tes résultats.
+  Elle oriente vers des <em>bonnes pratiques</em> et, si besoin, vers un <strong>avis professionnel</strong>.`,
+  TDAH: `Signes d’inattention/impulsivité impactant l’organisation. Des aménagements concrets aident : fractionnement, feedback rapide, routines courtes.`,
+  TSA: `Prévisibilité élevée, logique et intérêts spécialisés : on outille la compréhension sociale et on structure des routines rassurantes.`,
+  HSP: `Sensibilité élevée = force (intuition, finesse) si l’on protège son énergie (pauses, environnement apaisant).`,
+  DYS: `Difficultés spécifiques durables : des aménagements ciblés et un bilan orientent vers les aides efficaces.`,
+  HPI: `Indices d’aisance cognitive / arborescence. Seul un test normé (WISC/WAIS) conclut. Miser sur défis stimulants et mind mapping.`
 };
 
+// --------- Conseils M1→M7 par profil (rapport long) ---------
+const M_LONG = {
+  TDAH: [
+    ["M1 – Connaissance de soi","Exercices courts, variés ; carte d’identité des forces, pas plus de 10′ par outil."],
+    ["M2 – Stress & émotions","Respiration 5‑5 en mouvement ; sport bref 10′ avant révisions."],
+    ["M3 – Motivation & confiance","Objectifs micro (≤30′) + récompense immédiate ; tableau de micro‑victoires."],
+    ["M4 – Concentration","Pomodoro 20/5 ; jeux chronométrés ; éliminer notifications."],
+    ["M5 – Méthodes de travail","Timers visibles ; post‑it colorés ; check‑lists d’étapes."],
+    ["M6 – Examens/compétitions","Répétitions rapides en conditions réelles ; routine d’activation 5′."],
+    ["M7 – Temps & équilibre","Routines du matin/soir ; alarmes ; une activité physique courte/jour."]
+  ],
+  TSA: [
+    ["M1 – Connaissance de soi","Profil visuel + intérêts spéciaux listés ; règles explicites du groupe."],
+    ["M2 – Stress & émotions","Fiches visuelles d’apaisement ; scénarios “si… alors…”."],
+    ["M3 – Motivation & confiance","S’appuyer sur les centres d’intérêt pour les projets scolaires."],
+    ["M4 – Concentration","Même lieu/heure ; casque anti‑bruit ; transitions annoncées."],
+    ["M5 – Méthodes de travail","Étapes séquentielles ; pictogrammes ; scripts pour tâches récurrentes."],
+    ["M6 – Examens/compétitions","Mode d’emploi du jour J (trajet, salle, matériel, timing)."],
+    ["M7 – Temps & équilibre","Agenda prévisible ; un changement à la fois ; brief visuel hebdo."]
+  ],
+  HSP: [
+    ["M1 – Connaissance de soi","Identifier déclencheurs sensoriels ; créer une “boîte à calme”."],
+    ["M2 – Stress & émotions","Cohérence cardiaque 5‑5 3×/jour ; ancrage corporel."],
+    ["M3 – Motivation & confiance","Formuler le droit à l’erreur ; auto‑bienveillance guidée 5′."],
+    ["M4 – Concentration","Espace de travail apaisé ; lumière douce ; pauses prévues."],
+    ["M5 – Méthodes de travail","Supports allégés ; séquences 30′ max ; to‑do 3 priorités."],
+    ["M6 – Examens/compétitions","Repérage de la salle ; routine apaisante ; visualisation positive."],
+    ["M7 – Temps & équilibre","Moments nature/musique ; limites claires pour éviter la surcharge."]
+  ],
+  DYS: [
+    ["M1 – Connaissance de soi","Accepter le profil ; noter les stratégies qui marchent déjà."],
+    ["M2 – Stress & émotions","Dédramatiser l’erreur ; pauses actives pour réduire la fatigue."],
+    ["M3 – Motivation & confiance","Valoriser la créativité ; objectifs réalistes et visibles."],
+    ["M4 – Concentration","Supports audio/visuels ; police lisible ; temps adapté."],
+    ["M5 – Méthodes de travail","Dictée vocale, lecture audio, schémas ; étapes simples."],
+    ["M6 – Examens/compétitions","Temps supplémentaire ; consignes reformulées ; plan de relecture."],
+    ["M7 – Temps & équilibre","Check‑lists ; organisation par pictos ; limiter surcharge écrite."]
+  ],
+  HPI: [
+    ["M1 – Connaissance de soi","Journal d’idées/projets ; tests approfondis pour canaliser l’élan."],
+    ["M2 – Stress & émotions","Cohérence cardiaque pour ralentir le mental ; autosuggestions."],
+    ["M3 – Motivation & confiance","Défis stimulants et concrets ; échéances courtes."],
+    ["M4 – Concentration","Mind mapping systématique ; blocage des distractions."],
+    ["M5 – Méthodes de travail","Concevoir ses propres méthodes (macro→micro)."],
+    ["M6 – Examens/compétitions","Simulations chronométrées ; stratégies de priorisation."],
+    ["M7 – Temps & équilibre","Plages de créativité libre ; règle 2/1 : 2 unités d’effort / 1 unité de jeu."]
+  ]
+};
+
+// --------- Conseils courts ---------
 const ADVICE = {
   TDAH: [
     "Fractionne les tâches (Pomodoro 20–25′ + 5′ pause) et utilise un minuteur visible.",
     "Alterne efforts courts et mouvements (respiration active, marche rapide).",
-    "Répète en conditions réelles avant les examens ; récompense chaque micro‑victoire."
+    "Répète en conditions réelles ; récompense chaque micro‑victoire."
   ],
   TSA: [
-    "Crée des routines claires et des repères visuels (agenda, pictos, check‑lists).",
-    "Prépare un « mode d’emploi » du jour J (trajet, salle, ordre des étapes).",
-    "Appuie‑toi sur tes intérêts spécifiques pour motiver l’apprentissage."
+    "Routines claires et repères visuels (agenda, pictos, check‑lists).",
+    "Prépare un « mode d’emploi » du jour J (trajet, salle, étapes).",
+    "Appuie‑toi sur tes intérêts spécifiques."
   ],
   HSP: [
-    "Installe un sas de décompression (calme, casque, lumière douce) et planifie des pauses.",
-    "Pratique l’ancrage (respiration 5‑5, marche consciente) après chaque surcharge.",
-    "Communique tes besoins sensoriels (ex. place au calme, pauses planifiées)."
+    "Sas de décompression (calme/casque/lumière douce).",
+    "Ancrage (respiration 5‑5, marche consciente).",
+    "Exprime tes besoins sensoriels."
   ],
   DYS: [
-    "Utilise lecture audio, dictée vocale, schémas ; dédramatise l’erreur.",
-    "Découpe chaque tâche en étapes courtes et visuelles ; pense aux temps supplémentaires.",
-    "Demande un bilan (orthophonie / neuropsych) pour des aménagements précis."
+    "Lecture audio, dictée vocale, schémas ; dédramatiser l’erreur.",
+    "Étapes courtes et visuelles ; temps supplémentaires.",
+    "Bilan (orthophonie / neuropsych) si signes multiples."
   ],
   HPI: [
-    "Canalise l’arborescence avec du mind mapping sur chaque chapitre ou projet.",
-    "Fixe des objectifs stimulants et concrets avec échéances courtes.",
-    "Garde du temps de créativité libre pour l’équilibre et la motivation."
+    "Mind mapping régulier.",
+    "Objectifs stimulants et courts.",
+    "Temps de créativité libre."
   ]
 };
 
@@ -217,36 +264,73 @@ const ADVICE = {
 function buildCTAs(flags){
   const box = document.getElementById('rp_cta');
   box.innerHTML = "";
-  // Bouton RDV général
+
+  // RDV général
   const rdv = document.createElement('a');
-  rdv.href = LINKS.RDV;
-  rdv.target = "_blank";
+  rdv.href = LINKS.RDV; rdv.target = "_blank";
   rdv.className = "btn btn-primary";
   rdv.textContent = "Prendre un RDV découverte (15 min)";
   box.appendChild(rdv);
 
-  // Bouton PMP (test complémentaire)
+  // PMP complémentaire
   const pmp = document.createElement('a');
-  pmp.href = LINKS.PMP;
-  pmp.target = "_blank";
+  pmp.href = LINKS.PMP; pmp.target = "_blank";
   pmp.className = "btn btn-outline";
   pmp.textContent = "Passer le test PMP complémentaire";
   box.appendChild(pmp);
 
-  // Boutons info selon flags
+  // Bouton contact (si au moins un résultat positif)
+  if(flags.length>0){
+    const contact = document.createElement('a');
+    contact.href = LINKS.CONTACT;
+    contact.className = "btn btn-outline";
+    contact.textContent = "Contacter Alexandre (email)";
+    box.appendChild(contact);
+  }
+
+  // Liens officiels selon flags
   flags.forEach(f=>{
     const a = document.createElement('a');
-    a.target = "_blank";
-    a.className = "btn btn-outline";
-    if(f==="TDAH"){ a.href = LINKS.TDAH; a.textContent = "Infos officielles TDAH (HAS)"; }
-    if(f==="TSA"){ a.href = LINKS.TSA; a.textContent = "Infos officielles TSA (HAS)"; }
-    if(f==="Dys"){ a.href = LINKS.DYS; a.textContent = "Parcours Dys (HAS)"; }
-    if(f==="HPI"){ a.href = LINKS.HPI; a.textContent = "Comprendre le HPI (Inserm)"; }
-    if(f!=="HSP") box.appendChild(a);
+    a.target = "_blank"; a.className = "btn btn-outline";
+    if(f==="TDAH"){ a.href = LINKS.TDAH; a.textContent = "Infos HAS – TDAH"; }
+    if(f==="TSA"){ a.href = LINKS.TSA; a.textContent = "Infos HAS – TSA"; }
+    if(f==="Dys"){ a.href = LINKS.DYS; a.textContent = "Parcours HAS – Dys"; }
+    if(f==="HPI"){ a.href = LINKS.HPI; a.textContent = "Dossier Inserm – HPI"; }
+    if(f!=="HSP") document.getElementById('rp_cta').appendChild(a);
   });
 }
 
 // --------- Report rendering ---------
+function nowStr(){ const d=new Date(); return d.toLocaleString('fr-FR',{dateStyle:'long',timeStyle:'short'}); }
+
+function renderLong(flags){
+  const host = document.getElementById('rp_long');
+  host.innerHTML = "";
+  if(flags.length===0) return;
+
+  const wrap = document.createElement('div');
+  wrap.className = "long-report";
+
+  flags.forEach(key=>{
+    const section = document.createElement('div');
+    section.className = "section";
+    const title = document.createElement('h3');
+    title.textContent = `📚 Plan d’actions détaillé (M1→M7) – ${key}`;
+    section.appendChild(title);
+
+    (M_LONG[key]||[]).forEach(([mod, txt])=>{
+      const m = document.createElement('div');
+      m.className = "module";
+      m.innerHTML = `<h4>${mod}</h4><p>${txt}</p>`;
+      section.appendChild(m);
+    });
+
+    wrap.appendChild(section);
+  });
+
+  host.appendChild(wrap);
+}
+
 function renderReport(scores){
   const rep = document.getElementById('report');
   const id = document.getElementById('rp_identity');
@@ -297,7 +381,6 @@ function renderReport(scores){
     sections.appendChild(s);
   }
 
-  // Sections détaillées
   addSection("🧩 A) TDAH – Résultat",
     `<strong>Items « souvent / très souvent » :</strong> ${scores.asrs.positives} / 6. 
     ${scores.asrs.positive ? "<span class='badge orange'>Seuil atteint (≥4)</span>" : "<span class='badge blue'>Seuil non atteint</span>"}`,
@@ -323,6 +406,9 @@ function renderReport(scores){
     ${scores.hpi.positive ? "<span class='badge orange'>Indices multiples</span>" : "<span class='badge blue'>Indices limités</span>"}`,
     "HPI", ADVICE.HPI);
 
+  // Rapport long M1→M7 selon flags
+  renderLong(flags);
+
   // CTA buttons
   buildCTAs(flags);
 
@@ -343,19 +429,13 @@ function gatherScores(){
 function resetAll(){
   document.querySelectorAll('input[type="radio"],input[type="checkbox"]').forEach(el=>el.checked=false);
   document.getElementById('report').classList.add('hidden');
-  document.getElementById('rp_summary').innerHTML = "";
-  document.getElementById('rp_sections').innerHTML = "";
-  document.getElementById('rp_cta').innerHTML = "";
+  ["rp_summary","rp_sections","rp_cta","rp_long"].forEach(id=>document.getElementById(id).innerHTML="");
 }
 function init(){
-  renderASRS();
-  renderAQ10();
-  renderHSP();
+  renderASRS(); renderAQ10(); renderHSP();
   renderCheckList(DYS_ITEMS, 'dys', 'dys_list');
   renderCheckList(HPI_ITEMS, 'hpi', 'hpi_list');
-  document.getElementById('btn_score').addEventListener('click', ()=>{
-    renderReport(gatherScores());
-  });
+  document.getElementById('btn_score').addEventListener('click', ()=>renderReport(gatherScores()));
   document.getElementById('btn_reset').addEventListener('click', resetAll);
 }
 document.addEventListener('DOMContentLoaded', init);
