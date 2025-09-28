@@ -1,46 +1,35 @@
 
-/* === PRINT HEADER WITH LOGO (A4) === */
-@media print {
-  /* Reserve space for header */
-  @page { size: A4; margin: 18mm 12mm 14mm 12mm; }
-  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .print-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 42mm; /* enough room for logo + line */
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 6mm 0 3mm 0;
-    border-bottom: 1px solid #e2e8f0;
+/* print_header.css — IPP Adultes & Jeunes */
+.print-header{
+  display:none;
+}
+@media print{
+  .print-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    border-bottom:1px solid #e5e7eb;
+    padding:6px 0 10px 0;
+    margin-bottom:10px;
   }
-  .print-header img {
-    height: 26mm;
-    width: auto;
-    object-fit: contain;
-    margin-left: 2mm;
+  .print-header img{
+    height:30px; /* logo size in PDF header */
+    width:auto;
+    object-fit:contain;
   }
-  .print-header .title-block {
-    display: flex;
-    flex-direction: column;
+  .print-header .title{
+    font-size:16px; margin:0;
   }
-  .print-header .title-block .title {
-    font-size: 16pt;
-    font-weight: 700;
-    margin: 0;
+  .print-header .subtitle{
+    font-size:12px; color:#475569;
   }
-  .print-header .title-block .subtitle {
-    font-size: 11pt;
-    color: #475569;
-    margin: 2px 0 0 0;
-  }
-  /* Shift printed content down so header doesn't overlap */
-  .like-a4 { 
-    margin-top: 44mm !important; 
-    page-break-after: always;
-    box-shadow: none; border: 0;
-  }
-  header.hero, .toolbar { display: none !important; }
+}
+/* Home page hero logo (centered, responsive) */
+header.hero .logo{
+  width:540px;
+  max-width:92vw;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  margin:0 auto;
 }
