@@ -1,1 +1,758 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IPP — Inventaire Psychologique de Performance (Adultes)</title>
+<style>
+:root{--ink:#0f172a;--line:#e5e7eb;--muted:#475569}
+*{box-sizing:border-box}html,body{margin:0;background:#fff;color:var(--ink);font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Arial}
+header.hero{display:flex;flex-direction:column;align-items:center;gap:14px;padding:28px 12px;background:#fff;border-bottom:1px solid var(--line)}
+.logo{width:540px;max-width:92vw;height:auto;object-fit:contain;display:block}
+.subtitle{color:var(--muted)}.rules{max-width:980px}
+.rules ul{margin:8px 0 0 0;padding-left:18px;color:#334155;line-height:1.6}
+.cta{background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:10px;padding:12px 18px;cursor:pointer}
+.hidden{display:none}main{max-width:1200px;margin:18px auto;padding:0 14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.option{border:1px solid #cbd5e1;background:#f8fafc;border-radius:12px;padding:10px;cursor:pointer;position:relative}
+.option.selected{border-color:#2563eb;background:#eff6ff}
+.rank-badge{position:absolute;top:8px;right:8px;background:#2563eb;color:#fff;border-radius:999px;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-weight:700}
+.nav{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.nav .info{margin-left:auto;color:#475569}
+.primary{background:var(--ink);color:#fff;border:1px solid var(--ink);border-radius:10px;padding:8px 12px}
+.grid2{display:grid;grid-template-columns:1.1fr 0.9fr;gap:14px}.center{text-align:center}
+#resultTable{width:100%;border-collapse:collapse;font-size:14px}#resultTable th,#resultTable td{border:1px solid #e2e8f0;padding:8px 10px;text-align:left;vertical-align:top}
+#resultTable th:nth-child(2),#resultTable td:nth-child(2){text-align:right;width:70px}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}.kpi .b{background:#f1f5f9;border:1px solid #e2e8f0;border-radius:10px;padding:8px}
+@page { size: A4; margin: 12mm; }.like-a4{width:794px;min-height:1123px;margin:0 auto 16px auto;padding:18px;border:1px solid #e2e8f0;border-radius:10px;background:#fff}
+#pgNarratif h3{margin:18px 0 6px}#pgNarratif p{line-height:1.6;margin:6px 0}
+.toolbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}footer{padding:12px;text-align:center;color:#64748b}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#eef2ff;border:1px solid #c7d2fe;color:#1e293b;font-size:12px;margin-left:6px}
+blockquote{background:#f8fafc;border-left:4px solid #94a3b8;margin:8px 0;padding:8px 10px;border-radius:6px}
+ul{padding-left:18px}.dot{width:12px;height:12px;border-radius:50%;display:inline-block;margin-right:6px}
+.dot.garant{background:#1f77b4}.dot.conq{background:#d62728}.dot.bienv{background:#2ca02c}.dot.fiable{background:#6b21a8}.dot.vision{background:#0284c7}.dot.spont{background:#f59e0b}
+.legend{display:flex;gap:14px;justify-content:center;margin:6px 0 12px;font-size:14px}hr.sep{border:0;border-top:1px solid #e2e8f0;margin:10px 0}
+.small{font-size:12px;color:#475569;text-align:center;margin-top:6px}
+@media print{ header.hero, .toolbar button, #quiz { display: none !important; } body{ background:#fff } .like-a4{ page-break-after:always; box-shadow:none; border:0 } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <!-- Remplacez src par votre logo si besoin -->
+  <img class="logo" alt="Académie de Performances — Alexandre Griffet" src="logo_entreprise.jpg">
+  <h1>Test IPP — Inventaire Psychologique de Performance (Adultes)</h1>
+  <p class="subtitle">Travail • Sport • Famille • Relations</p>
+  <button id="startBtn" class="cta">Commencer</button>
+  <div class="rules"><ul>
+    <li>Moment calme, sans dérangement.</li>
+    <li>Répondez avec spontanéité — ne suranalysez pas.</li>
+    <li>À chaque question, classez <b>3 à 6</b> propositions (1→6).</li>
+    <li>Durée : jusqu’à 45 minutes.</li>
+  </ul></div>
+</header>
 
+<main id="app" class="hidden">
+  <section id="quiz" class="card"></section>
+  <section id="report" class="card hidden">
+    <div class="toolbar">
+      <h2 style="margin:0">Votre rapport IPP <span id="badgeADN" class="badge"></span><span id="badgeCAP" class="badge"></span></h2>
+      <div><button id="print" class="primary">Exporter PDF</button></div>
+    </div>
+
+    <div class="page like-a4" id="pg1">
+      <h3 class="center">Étoile IPP — ❤️ ADN (100%) • ⭐ Cap (actuel) • ⚪ Caps vécus</h3>
+      <div class="legend">
+        <span><span class="dot garant"></span> Garant</span>
+        <span><span class="dot conq"></span> Conquérant</span>
+        <span><span class="dot bienv"></span> Bienveillant</span>
+        <span><span class="dot fiable"></span> Fiable</span>
+        <span><span class="dot vision"></span> Visionnaire</span>
+        <span><span class="dot spont"></span> Spontané</span>
+      </div>
+      <div class="grid2">
+        <div>
+          <canvas id="etoile" height="420"></canvas>
+          <div class="small">Chaque point coloré = un profil. Le chiffre indique le % pour ce profil.</div>
+        </div>
+        <div>
+          <div class="kpi">
+            <div class="b"><strong>ADN :</strong> <span id="kpiADN"></span></div>
+            <div class="b"><strong>Cap actuel :</strong> <span id="kpiCAP"></span></div>
+            <div class="b"><strong>Caps vécus :</strong> <span id="kpiLived"></span></div>
+          </div>
+          <table id="resultTable"><thead><tr><th>Profil</th><th>%</th><th>Repère</th></tr></thead><tbody></tbody></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="page like-a4" id="pg2">
+      <h3 class="center">Boussole (Seul ↔ Groupe • Interne ↔ Externe) & Pyramide</h3>
+      <div class="grid2">
+        <div>
+          <canvas id="boussole" height="420"></canvas>
+          <div class="small">Le point montre votre position moyenne : vers « seul/interne » ou « groupe/externe ».</div>
+        </div>
+        <div>
+          <canvas id="pyramide" height="420"></canvas>
+          <div class="small">Trois niveaux d’effort : confortable, défi, tension. Visez surtout « défi ».</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page like-a4" id="pgNarratif">
+      <div id="welcome"></div><hr class="sep"/><div id="sections"></div>
+    </div>
+  </section>
+</main>
+<footer><small>© IPP — Académie de Performances</small></footer>
+
+<script>
+const PROFILES=["Garant","Conquérant","Bienveillant","Fiable","Visionnaire","Spontané"];
+
+/* ====== 60 vignettes adultes (6 options uniques par vignette) ======
+   NB : les libellés n’affichent PAS le nom des profils. */
+const QUESTIONS=[
+  // Travail / Gestion de projet
+  {prompt:"1. Votre équipe doit livrer une présentation lundi à 9h : quelle première action lancez-vous ?",
+   weight:1, options:[
+     {label:"Structurer le plan en trois étapes puis lancer la première.", profil:"Garant"},
+     {label:"Trancher et lancer une action visible en 10 minutes.", profil:"Conquérant"},
+     {label:"Installer un climat serein puis engager la première étape.", profil:"Bienveillant"},
+     {label:"Vérifier la cohérence avec les engagements et démarrer.", profil:"Fiable"},
+     {label:"Esquisser le résultat cible avant d’agir.", profil:"Visionnaire"},
+     {label:"Rendre la tâche ludique et lancer un sprint de 10 min.", profil:"Spontané"}
+   ]},
+  {prompt:"2. Un client attend un plan sous 24h : par quoi commencez-vous ?",
+   weight:1, options:[
+     {label:"Clarifier objectifs/critères et sécuriser les dépendances.", profil:"Garant"},
+     {label:"Fixer un jalon mesurable à H+30 et y parvenir.", profil:"Conquérant"},
+     {label:"Demander un soutien bref puis lancer l’action.", profil:"Bienveillant"},
+     {label:"Clarifier « qui fait quoi pour quand » puis agir.", profil:"Fiable"},
+     {label:"Schématiser objectif → critères → premier pas.", profil:"Visionnaire"},
+     {label:"Commencer par la partie la plus stimulante.", profil:"Spontané"}
+   ]},
+  {prompt:"3. Votre backlog déborde : quelle décision prenez-vous immédiatement ?",
+   weight:1, options:[
+     {label:"Prioriser par impact/délai et démarrer le point n°1.", profil:"Garant"},
+     {label:"Prendre le lead et répartir les rôles tout de suite.", profil:"Conquérant"},
+     {label:"Préciser les attentes réciproques puis avancer.", profil:"Bienveillant"},
+     {label:"Poser un cadre simple et tenable, puis exécuter.", profil:"Fiable"},
+     {label:"Réduire à l’essentiel et tester en petit.", profil:"Visionnaire"},
+     {label:"Mettre un chrono et foncer pour créer l’élan.", profil:"Spontané"}
+   ]},
+  {prompt:"4. Un retard bloque le projet : que faites-vous d’abord ?",
+   weight:1, options:[
+     {label:"Identifier le risque critique et le traiter d’abord.", profil:"Garant"},
+     {label:"Évacuer l’obstacle n°1 sans attendre.", profil:"Conquérant"},
+     {label:"Écouter 5 minutes pour apaiser et relancer.", profil:"Bienveillant"},
+     {label:"Rappeler la règle du jeu, puis exécuter.", profil:"Fiable"},
+     {label:"Transformer l’intuition en hypothèse testable.", profil:"Visionnaire"},
+     {label:"Changer d’angle pour relancer l’énergie.", profil:"Spontané"}
+   ]},
+  {prompt:"5. Réunion clé dans 2 heures : comment vous préparez-vous ?",
+   weight:1, options:[
+     {label:"Préparer documents/outils et ouvrir la bonne tâche.", profil:"Garant"},
+     {label:"Négocier une décision rapide avec le sponsor.", profil:"Conquérant"},
+     {label:"Créer un point de contact humain avant d’entrer.", profil:"Bienveillant"},
+     {label:"Assumer une décision responsable et mesurée.", profil:"Fiable"},
+     {label:"Écrire le principe directeur puis lancer.", profil:"Visionnaire"},
+     {label:"Format express et concret pour démarrer.", profil:"Spontané"}
+   ]},
+  {prompt:"6. Budget serré et délais courts : quelle action prioritaire ?",
+   weight:1, options:[
+     {label:"Formaliser la procédure minimale puis exécuter.", profil:"Garant"},
+     {label:"Commencer par ce qui donne le plus de traction.", profil:"Conquérant"},
+     {label:"Protéger la relation clé avant de pousser.", profil:"Bienveillant"},
+     {label:"Tracer une ligne rouge et avancer sans la franchir.", profil:"Fiable"},
+     {label:"Croquis rapide puis essai réel.", profil:"Visionnaire"},
+     {label:"Décider vite et améliorer en route.", profil:"Spontané"}
+   ]},
+
+  // Management / Leadership
+  {prompt:"7. Un collaborateur décroche : quelle est votre première démarche ?",
+   weight:1, options:[
+     {label:"Checklist courte et vérification croisée.", profil:"Garant"},
+     {label:"Challenger avec un objectif simple et proche.", profil:"Conquérant"},
+     {label:"Écoute brève et soutien concret pour relancer.", profil:"Bienveillant"},
+     {label:"Clarifier responsabilités et échéances.", profil:"Fiable"},
+     {label:"Observer 10 minutes, puis proposer une piste claire.", profil:"Visionnaire"},
+     {label:"Rendre la tâche plus vivante et motivante.", profil:"Spontané"}
+   ]},
+  {prompt:"8. Conflit latent dans l’équipe : que faites-vous en premier ?",
+   weight:1, options:[
+     {label:"Clarifier les points de désaccord et ordonner le débat.", profil:"Garant"},
+     {label:"Prendre la parole et fixer un cap immédiatement.", profil:"Conquérant"},
+     {label:"Permettre à chacun d’exprimer son besoin clé.", profil:"Bienveillant"},
+     {label:"Rappeler les règles de respect et la mission commune.", profil:"Fiable"},
+     {label:"Reformuler la vision d’ensemble pour recadrer.", profil:"Visionnaire"},
+     {label:"Détendre l’atmosphère pour baisser la pression.", profil:"Spontané"}
+   ]},
+  {prompt:"9. Décision impopulaire à annoncer : comment lancez-vous ?",
+   weight:1, options:[
+     {label:"Exposer les faits et la méthode, sans détour.", profil:"Garant"},
+     {label:"Assumer la décision et donner l’horizon gagnant.", profil:"Conquérant"},
+     {label:"Reconnaître l’impact humain, expliquer le pourquoi.", profil:"Bienveillant"},
+     {label:"Insister sur l’équité et la cohérence.", profil:"Fiable"},
+     {label:"Situer la décision dans un cap clair.", profil:"Visionnaire"},
+     {label:"Alléger la tension sans minimiser l’enjeu.", profil:"Spontané"}
+   ]},
+  {prompt:"10. Nouvelle équipe confiée : par quoi commencez-vous ?",
+   weight:1, options:[
+     {label:"Processus simple + attentes lisibles.", profil:"Garant"},
+     {label:"Objectif court terme visible et mobilisant.", profil:"Conquérant"},
+     {label:"Tour de table pour créer la confiance.", profil:"Bienveillant"},
+     {label:"Rôles et règles acceptés par tous.", profil:"Fiable"},
+     {label:"Vision partagée en 3 points.", profil:"Visionnaire"},
+     {label:"Kick-off énergisant et concret.", profil:"Spontané"}
+   ]},
+  {prompt:"11. Déléguer une tâche sensible : première action ?",
+   weight:1, options:[
+     {label:"Check-list et jalons de contrôle.", profil:"Garant"},
+     {label:"Donner l’autonomie avec un jalon rapide.", profil:"Conquérant"},
+     {label:"S’assurer que la personne se sent capable.", profil:"Bienveillant"},
+     {label:"Contrat clair : qui fait quoi pour quand.", profil:"Fiable"},
+     {label:"Clarifier le résultat attendu par un exemple.", profil:"Visionnaire"},
+     {label:"Démarrage léger et itératif.", profil:"Spontané"}
+   ]},
+  {prompt:"12. Feedback difficile à donner : comment vous y prenez-vous ?",
+   weight:1, options:[
+     {label:"Faits → impact → amélioration mesurable.", profil:"Garant"},
+     {label:"Direct, court, tourné vers l’action.", profil:"Conquérant"},
+     {label:"Respect, écoute, puis demande claire.", profil:"Bienveillant"},
+     {label:"Juste et proportionné, sans jugement.", profil:"Fiable"},
+     {label:"Un exemple concret pour éclairer.", profil:"Visionnaire"},
+     {label:"Motiver par un mini défi positif.", profil:"Spontané"}
+   ]},
+
+  // Négociation / Clients
+  {prompt:"13. Objection prix d’un prospect : quelle première réponse ?",
+   weight:1, options:[
+     {label:"Comparer factuellement valeur/livrables.", profil:"Garant"},
+     {label:"Recentrer sur l’impact obtenu.", profil:"Conquérant"},
+     {label:"Valider la préoccupation, puis proposer une option.", profil:"Bienveillant"},
+     {label:"Rester juste : prix cohérent avec la qualité.", profil:"Fiable"},
+     {label:"Reformuler le besoin réel et cadrer l’offre.", profil:"Visionnaire"},
+     {label:"Proposer un test court pour rassurer.", profil:"Spontané"}
+   ]},
+  {prompt:"14. Client insatisfait : que faites-vous immédiatement ?",
+   weight:1, options:[
+     {label:"Contrôle qualité + correctif rapide.", profil:"Garant"},
+     {label:"Assumer et fournir un plan visible.", profil:"Conquérant"},
+     {label:"Écoute active + geste relationnel.", profil:"Bienveillant"},
+     {label:"Reconnaître l’écart vs engagement.", profil:"Fiable"},
+     {label:"Clarifier l’objectif vrai et la suite.", profil:"Visionnaire"},
+     {label:"Proposer un quick-win en 48h.", profil:"Spontané"}
+   ]},
+  {prompt:"15. Renouvellement en risque : par quoi commencez-vous ?",
+   weight:1, options:[
+     {label:"Données d’usage + plan d’amélioration.", profil:"Garant"},
+     {label:"Action terrain pour montrer la valeur.", profil:"Conquérant"},
+     {label:"Réparer la relation clé d’abord.", profil:"Bienveillant"},
+     {label:"Contrat clair, attentes réalignées.", profil:"Fiable"},
+     {label:"Vision d’évolution à 6–12 mois.", profil:"Visionnaire"},
+     {label:"Pilote simple pour reconvaincre.", profil:"Spontané"}
+   ]},
+  {prompt:"16. Préparer une offre complexe : quelle démarche initiale ?",
+   weight:1, options:[
+     {label:"Sommaire + critères de réussite.", profil:"Garant"},
+     {label:"Proposer 2 options nettes dès le début.", profil:"Conquérant"},
+     {label:"Co-construction avec l’interlocuteur.", profil:"Bienveillant"},
+     {label:"Clauses justes et tenables.", profil:"Fiable"},
+     {label:"Storyboard de l’offre (3 slides).", profil:"Visionnaire"},
+     {label:"Prototype court à montrer vite.", profil:"Spontané"}
+   ]},
+  {prompt:"17. Premier rendez-vous stratégique : première action ?",
+   weight:1, options:[
+     {label:"Agenda précis et documents prêts.", profil:"Garant"},
+     {label:"Question d’impact pour cadrer vite.", profil:"Conquérant"},
+     {label:"Créer un lien fluide dès l’accueil.", profil:"Bienveillant"},
+     {label:"Règles simples pour le déroulé.", profil:"Fiable"},
+     {label:"Reformulation de la vision du client.", profil:"Visionnaire"},
+     {label:"Piste concrète à tester rapidement.", profil:"Spontané"}
+   ]},
+  {prompt:"18. Négociation serrée demain : comment lancez-vous la préparation ?",
+   weight:1, options:[
+     {label:"Faits + BATNA + concessions listées.", profil:"Garant"},
+     {label:"Objectif non négociable et plan A/B.", profil:"Conquérant"},
+     {label:"Cartographie des personnes et besoins.", profil:"Bienveillant"},
+     {label:"Points rouges et lignes tenables.", profil:"Fiable"},
+     {label:"Scénarios en 3 issues plausibles.", profil:"Visionnaire"},
+     {label:"Script simple avec options vivantes.", profil:"Spontané"}
+   ]},
+
+  // Organisation personnelle
+  {prompt:"19. Boîte mail saturée : quelle première action ?",
+   weight:1, options:[
+     {label:"Règles de tri + dossier ‘Action’.", profil:"Garant"},
+     {label:"Supprimer/archiver en masse.", profil:"Conquérant"},
+     {label:"Prévenir l’équipe du nouveau rythme.", profil:"Bienveillant"},
+     {label:"Créer des créneaux fixes de traitement.", profil:"Fiable"},
+     {label:"Limiter les sources et flux.", profil:"Visionnaire"},
+     {label:"Timer 10 min de blitz tri.", profil:"Spontané"}
+   ]},
+  {prompt:"20. Agenda trop chargé : que décidez-vous tout de suite ?",
+   weight:1, options:[
+     {label:"Découper et re-prioriser.", profil:"Garant"},
+     {label:"Annuler 20% pour sauver l’essentiel.", profil:"Conquérant"},
+     {label:"Prévenir les personnes, proposer des alternatives.", profil:"Bienveillant"},
+     {label:"Bloquer des focus non négociables.", profil:"Fiable"},
+     {label:"Une seule priorité par demi-journée.", profil:"Visionnaire"},
+     {label:"Rituel rapide matin/soir.", profil:"Spontané"}
+   ]},
+  {prompt:"21. Redémarrer après une coupure : par quoi commencez-vous ?",
+   weight:1, options:[
+     {label:"Mini plan 25/5 immédiat.", profil:"Garant"},
+     {label:"Quick-win visible maintenant.", profil:"Conquérant"},
+     {label:"Message simple à un allié et on part.", profil:"Bienveillant"},
+     {label:"Clarifier le but puis exécuter.", profil:"Fiable"},
+     {label:"Croquis du résultat cible.", profil:"Visionnaire"},
+     {label:"Un bloc fun et concret pour relancer.", profil:"Spontané"}
+   ]},
+  {prompt:"22. Trois priorités concurrentes : que faites-vous d’abord ?",
+   weight:1, options:[
+     {label:"Matrice impact/délai + 1er pas.", profil:"Garant"},
+     {label:"Trancher et séquencer fort.", profil:"Conquérant"},
+     {label:"Aligner les personnes concernées.", profil:"Bienveillant"},
+     {label:"Choisir la voie la plus juste/tenable.", profil:"Fiable"},
+     {label:"Réduire à l’essentiel mesurable.", profil:"Visionnaire"},
+     {label:"Sprint 10 min sur la plus motivante.", profil:"Spontané"}
+   ]},
+  {prompt:"23. Besoin de routine efficace : quelle première brique ?",
+   weight:1, options:[
+     {label:"Check rapide du matin.", profil:"Garant"},
+     {label:"Mini défi quotidien visible.", profil:"Conquérant"},
+     {label:"Point humain court (allié).", profil:"Bienveillant"},
+     {label:"Heure fixe pour la tâche clé.", profil:"Fiable"},
+     {label:"Principe directeur écrit (1 phrase).", profil:"Visionnaire"},
+     {label:"Format simple et jouable partout.", profil:"Spontané"}
+   ]},
+  {prompt:"24. Fatigue + travail à rendre : comment lancez-vous malgré tout ?",
+   weight:1, options:[
+     {label:"Découper et viser OK-quality.", profil:"Garant"},
+     {label:"Faire 1 chose visible maintenant.", profil:"Conquérant"},
+     {label:"Demander un coup de main court.", profil:"Bienveillant"},
+     {label:"Faire juste ce qui est dû.", profil:"Fiable"},
+     {label:"Simplifier le résultat attendu.", profil:"Visionnaire"},
+     {label:"Faire très simple, améliorer après.", profil:"Spontané"}
+   ]},
+
+  // Famille / Vie perso
+  {prompt:"25. Matin compliqué avec les enfants : quelle première action calme la situation ?",
+   weight:1, options:[
+     {label:"Routine visuelle en 3 étapes.", profil:"Garant"},
+     {label:"Décision rapide : une chose à la fois.", profil:"Conquérant"},
+     {label:"Parole apaisante + contact visuel.", profil:"Bienveillant"},
+     {label:"Règle claire, ton posé, cohérence.", profil:"Fiable"},
+     {label:"Raccourci simple vers l’objectif.", profil:"Visionnaire"},
+     {label:"Jeu rapide pour relancer.", profil:"Spontané"}
+   ]},
+  {prompt:"26. Discussion importante avec votre partenaire : par quoi commencez-vous ?",
+   weight:1, options:[
+     {label:"Faits, ressenti, demande concrète.", profil:"Garant"},
+     {label:"Dire l’intention et la décision.", profil:"Conquérant"},
+     {label:"Valider l’émotion puis avancer.", profil:"Bienveillant"},
+     {label:"Respect, équité, solutions tenables.", profil:"Fiable"},
+     {label:"Partager la vision commune.", profil:"Visionnaire"},
+     {label:"Alléger le ton et clarifier simplement.", profil:"Spontané"}
+   ]},
+  {prompt:"27. Organisation du week-end familial : quelle démarche initiale ?",
+   weight:1, options:[
+     {label:"Liste courte + horaires clés.", profil:"Garant"},
+     {label:"Réserver vite les éléments critiques.", profil:"Conquérant"},
+     {label:"Tenir compte de l’énergie de chacun.", profil:"Bienveillant"},
+     {label:"Règles simples (budget/temps).", profil:"Fiable"},
+     {label:"Choisir une intention centrale.", profil:"Visionnaire"},
+     {label:"Prévoir une activité fun pour lancer.", profil:"Spontané"}
+   ]},
+  {prompt:"28. Tension récurrente à la maison : que faites-vous en premier ?",
+   weight:1, options:[
+     {label:"Identifier un fait et une solution simple.", profil:"Garant"},
+     {label:"Agir sur la friction majeure maintenant.", profil:"Conquérant"},
+     {label:"Parler court et avec douceur.", profil:"Bienveillant"},
+     {label:"Redire les limites non négociables.", profil:"Fiable"},
+     {label:"Repenser l’organisation (schéma rapide).", profil:"Visionnaire"},
+     {label:"Changer d’ambiance 10 minutes.", profil:"Spontané"}
+   ]},
+  {prompt:"29. Surcharge mentale : quelle première décision ?",
+   weight:1, options:[
+     {label:"Externaliser sur papier et prioriser.", profil:"Garant"},
+     {label:"Supprimer ce qui n’apporte rien.", profil:"Conquérant"},
+     {label:"Demander/Accepter un relais ponctuel.", profil:"Bienveillant"},
+     {label:"Dire non proprement, proposer une option.", profil:"Fiable"},
+     {label:"Garder une seule cible pour la journée.", profil:"Visionnaire"},
+     {label:"Faire 10 minutes d’air et relancer.", profil:"Spontané"}
+   ]},
+  {prompt:"30. Retrouver du temps de qualité : quelle action lancez-vous ?",
+   weight:1, options:[
+     {label:"Bloquer un créneau sacré hebdo.", profil:"Garant"},
+     {label:"Décider d’une activité claire et régulière.", profil:"Conquérant"},
+     {label:"Rituel simple de reconnexion.", profil:"Bienveillant"},
+     {label:"Cadre : pas d’écran / pas d’urgences.", profil:"Fiable"},
+     {label:"Intention commune + petit rituel.", profil:"Visionnaire"},
+     {label:"Mini-sortie fun dès cette semaine.", profil:"Spontané"}
+   ]},
+
+  // Sport / Santé adulte
+  {prompt:"31. Reprise d’entraînement après pause : par quoi commencez-vous ?",
+   weight:1, options:[
+     {label:"Plan progressif 3 semaines.", profil:"Garant"},
+     {label:"Séance courte aujourd’hui, tangible.", profil:"Conquérant"},
+     {label:"Compagnon d’entraînement bienveillant.", profil:"Bienveillant"},
+     {label:"Objectif sûr et réaliste.", profil:"Fiable"},
+     {label:"Un geste technique à ressentir.", profil:"Visionnaire"},
+     {label:"Séance fun de redémarrage.", profil:"Spontané"}
+   ]},
+  {prompt:"32. Objectif 10 km dans 8 semaines : première étape ?",
+   weight:1, options:[
+     {label:"Calendrier séances + notations.", profil:"Garant"},
+     {label:"Test chrono de départ.", profil:"Conquérant"},
+     {label:"Groupe pour la motivation.", profil:"Bienveillant"},
+     {label:"Plan charge/récup cohérent.", profil:"Fiable"},
+     {label:"Image-cible et repères sensoriels.", profil:"Visionnaire"},
+     {label:"Varier terrains pour le plaisir.", profil:"Spontané"}
+   ]},
+  {prompt:"33. Stress avant compétition : quelle action immédiate ?",
+   weight:1, options:[
+     {label:"Rituel 3 points (respire/visualise/active).", profil:"Garant"},
+     {label:"Une consigne, un objectif simple.", profil:"Conquérant"},
+     {label:"Message de soutien à un proche.", profil:"Bienveillant"},
+     {label:"Rappel du plan juste et tenable.", profil:"Fiable"},
+     {label:"Visualisation courte, claire.", profil:"Visionnaire"},
+     {label:"Musique/rythme pour l’élan.", profil:"Spontané"}
+   ]},
+  {prompt:"34. Blessure légère : comment adaptez-vous l’entraînement ?",
+   weight:1, options:[
+     {label:"Adapter charge + check régulier.", profil:"Garant"},
+     {label:"Garder un objectif visible (différent).", profil:"Conquérant"},
+     {label:"Soutien d’un pro/coach.", profil:"Bienveillant"},
+     {label:"Respect strict des limites.", profil:"Fiable"},
+     {label:"Explorer une variante technique.", profil:"Visionnaire"},
+     {label:"Activités alternatives plaisantes.", profil:"Spontané"}
+   ]},
+  {prompt:"35. Sommeil en baisse : quelle première mesure ?",
+   weight:1, options:[
+     {label:"Routine d’endormissement simple.", profil:"Garant"},
+     {label:"Couper tard le soir, décider net.", profil:"Conquérant"},
+     {label:"Demander de l’aide à la maison.", profil:"Bienveillant"},
+     {label:"Heures fixes + hygiène stricte.", profil:"Fiable"},
+     {label:"Ambiance (lumière/son/air) ajustée.", profil:"Visionnaire"},
+     {label:"Sieste flash 10–15 min.", profil:"Spontané"}
+   ]},
+  {prompt:"36. Récupération insuffisante : que changez-vous d’abord ?",
+   weight:1, options:[
+     {label:"Planifier les jours off.", profil:"Garant"},
+     {label:"Alléger 20% dès cette semaine.", profil:"Conquérant"},
+     {label:"Moments ‘zéro pression’ partagés.", profil:"Bienveillant"},
+     {label:"Limiter les charges cumulées.", profil:"Fiable"},
+     {label:"Renforcer les rituels de sortie.", profil:"Visionnaire"},
+     {label:"Massage/relax express après séance.", profil:"Spontané"}
+   ]},
+
+  // Réseaux / Distractions
+  {prompt:"37. Notifications envahissantes : première action ?",
+   weight:1, options:[
+     {label:"Règles de silence et plages fixes.", profil:"Garant"},
+     {label:"Tout couper pendant 2 h.", profil:"Conquérant"},
+     {label:"Prévenir votre entourage pro/perso.", profil:"Bienveillant"},
+     {label:"Limiter aux canaux essentiels.", profil:"Fiable"},
+     {label:"Un seul créneau par demi-journée.", profil:"Visionnaire"},
+     {label:"Mode avion pour un bloc focus.", profil:"Spontané"}
+   ]},
+  {prompt:"38. Réflexe réseau social pendant le travail : que décidez-vous ?",
+   weight:1, options:[
+     {label:"Bloqueur + liste blanche.", profil:"Garant"},
+     {label:"Supprimer l’app du téléphone.", profil:"Conquérant"},
+     {label:"Demander un coup de pouce ‘no-scroll’.", profil:"Bienveillant"},
+     {label:"Règle : après la tâche, pas avant.", profil:"Fiable"},
+     {label:"Remplacer par une micro-pause utile.", profil:"Visionnaire"},
+     {label:"Déplacer le téléphone hors de vue.", profil:"Spontané"}
+   ]},
+  {prompt:"39. Home office bruyant : que mettez-vous en place tout de suite ?",
+   weight:1, options:[
+     {label:"Casque + panneau ‘ne pas déranger’.", profil:"Garant"},
+     {label:"Changer de pièce/lieu immédiatement.", profil:"Conquérant"},
+     {label:"Aligner les horaires avec la famille.", profil:"Bienveillant"},
+     {label:"Règles claires pour les interruptions.", profil:"Fiable"},
+     {label:"Aménagement minimaliste et calme.", profil:"Visionnaire"},
+     {label:"S’installer 90 min ailleurs (bibliothèque).", profil:"Spontané"}
+   ]},
+  {prompt:"40. Tentations pendant une tâche profonde : quel geste immédiat ?",
+   weight:1, options:[
+     {label:"Mode focus + check à la fin.", profil:"Garant"},
+     {label:"Écarter l’objet tentation maintenant.", profil:"Conquérant"},
+     {label:"Prévenir quelqu’un et s’y tenir.", profil:"Bienveillant"},
+     {label:"Rappel de la règle : pas pendant.", profil:"Fiable"},
+     {label:"Une seule consigne mentale claire.", profil:"Visionnaire"},
+     {label:"Chrono 10 min, on reste dessus.", profil:"Spontané"}
+   ]},
+  {prompt:"41. Focus à retrouver après interruption : par quoi recommencez-vous ?",
+   weight:1, options:[
+     {label:"Relire l’objectif, reprendre l’étape 1.", profil:"Garant"},
+     {label:"Refaire un geste visible tout de suite.", profil:"Conquérant"},
+     {label:"Message bref ‘je me remets dessus’.", profil:"Bienveillant"},
+     {label:"Ré-ordonnancer ce qui reste.", profil:"Fiable"},
+     {label:"Rejouer le film du résultat.", profil:"Visionnaire"},
+     {label:"Bloc express de 10 minutes.", profil:"Spontané"}
+   ]},
+  {prompt:"42. Envie de procrastiner : comment lancez-vous malgré tout ?",
+   weight:1, options:[
+     {label:"Étape minuscule, 2 minutes.", profil:"Garant"},
+     {label:"Faire la partie la plus visible.", profil:"Conquérant"},
+     {label:"Co-travail 20 minutes (buddy).", profil:"Bienveillant"},
+     {label:"Limiter : 1 tâche, 1 lieu, 1 temps.", profil:"Fiable"},
+     {label:"Dessiner le premier geste.", profil:"Visionnaire"},
+     {label:"Rendre ça ludique et démarrer.", profil:"Spontané"}
+   ]},
+
+  // Finances / Décisions
+  {prompt:"43. Dépense imprévue : quelle première décision ?",
+   weight:1, options:[
+     {label:"Tableau rapide : coût/solution.", profil:"Garant"},
+     {label:"Agir pour limiter l’impact.", profil:"Conquérant"},
+     {label:"Parler aux concernés, aligner.", profil:"Bienveillant"},
+     {label:"Respecter le cadre budgétaire.", profil:"Fiable"},
+     {label:"Simplifier et différer le non essentiel.", profil:"Visionnaire"},
+     {label:"Trouver un gain rapide ailleurs.", profil:"Spontané"}
+   ]},
+  {prompt:"44. Arbitrage entre deux investissements : par quoi commencez-vous ?",
+   weight:1, options:[
+     {label:"Critères objectifs + scoring.", profil:"Garant"},
+     {label:"Choisir celui qui tracte le plus.", profil:"Conquérant"},
+     {label:"Consulter une personne impactée.", profil:"Bienveillant"},
+     {label:"Conformité aux règles/valeurs.", profil:"Fiable"},
+     {label:"Vision long terme, 1 pari assumé.", profil:"Visionnaire"},
+     {label:"Test court avant de s’engager.", profil:"Spontané"}
+   ]},
+  {prompt:"45. Négocier une augmentation : quelle action initiale ?",
+   weight:1, options:[
+     {label:"Préparer preuves/impact chiffré.", profil:"Garant"},
+     {label:"Demander un rdv et annoncer l’objectif.", profil:"Conquérant"},
+     {label:"Choisir le bon moment relationnel.", profil:"Bienveillant"},
+     {label:"Formuler juste et tenable.", profil:"Fiable"},
+     {label:"Relier au cap de l’entreprise.", profil:"Visionnaire"},
+     {label:"Pitch court, direct, souriant.", profil:"Spontané"}
+   ]},
+  {prompt:"46. Budget mensuel à rééquilibrer : que faites-vous d’abord ?",
+   weight:1, options:[
+     {label:"Lister et classer les dépenses.", profil:"Garant"},
+     {label:"Couper 10% immédiatement.", profil:"Conquérant"},
+     {label:"Aligner avec la famille.", profil:"Bienveillant"},
+     {label:"Règles claires et suivies.", profil:"Fiable"},
+     {label:"1 objectif prioritaire net.", profil:"Visionnaire"},
+     {label:"Changer une habitude coûteuse.", profil:"Spontané"}
+   ]},
+  {prompt:"47. Achat important à décider : quelle démarche ?",
+   weight:1, options:[
+     {label:"Comparatif simple + critères.", profil:"Garant"},
+     {label:"Choisir et avancer, éviter l’indécision.", profil:"Conquérant"},
+     {label:"Consulter les personnes concernées.", profil:"Bienveillant"},
+     {label:"Respecter le budget fixé.", profil:"Fiable"},
+     {label:"Vérifier l’usage réel et l’avenir.", profil:"Visionnaire"},
+     {label:"Essai rapide avant achat.", profil:"Spontané"}
+   ]},
+
+  // Amis / Social adulte
+  {prompt:"48. Un ami s’éloigne : première démarche ?",
+   weight:1, options:[
+     {label:"Message simple, proposition concrète.", profil:"Garant"},
+     {label:"Appel direct pour recaler une date.", profil:"Conquérant"},
+     {label:"Mot chaleureux, écoute réelle.", profil:"Bienveillant"},
+     {label:"Dire la vérité avec respect.", profil:"Fiable"},
+     {label:"Suggérer un projet commun clair.", profil:"Visionnaire"},
+     {label:"Proposer une activité fun très vite.", profil:"Spontané"}
+   ]},
+  {prompt:"49. Élargir votre réseau : que lancez-vous ?",
+   weight:1, options:[
+     {label:"Routine hebdo de prise de contact.", profil:"Garant"},
+     {label:"Événement où vous vous exposez.", profil:"Conquérant"},
+     {label:"Demander une mise en relation douce.", profil:"Bienveillant"},
+     {label:"Limiter à des relations de confiance.", profil:"Fiable"},
+     {label:"Cible claire + message positionné.", profil:"Visionnaire"},
+     {label:"Café rapide, concret, sympa.", profil:"Spontané"}
+   ]},
+  {prompt:"50. Conflit léger dans votre cercle : par quoi commencez-vous ?",
+   weight:1, options:[
+     {label:"Mettre le fait au centre, calmement.", profil:"Garant"},
+     {label:"Nommer le problème et proposer une issue.", profil:"Conquérant"},
+     {label:"Accueillir les émotions, recadrer doux.", profil:"Bienveillant"},
+     {label:"Rappel des limites et du respect.", profil:"Fiable"},
+     {label:"Redonner la perspective globale.", profil:"Visionnaire"},
+     {label:"Désamorcer avec humour léger.", profil:"Spontané"}
+   ]},
+  {prompt:"51. Organiser un événement entre amis : première action ?",
+   weight:1, options:[
+     {label:"Checklist + date + budget.", profil:"Garant"},
+     {label:"Réserver le lieu tout de suite.", profil:"Conquérant"},
+     {label:"Sonder les envies de chacun.", profil:"Bienveillant"},
+     {label:"Règles simples pour éviter les couacs.", profil:"Fiable"},
+     {label:"Thème clair en une ligne.", profil:"Visionnaire"},
+     {label:"Créer la hype et lancer l’invit.", profil:"Spontané"}
+   ]},
+  {prompt:"52. Demande d’aide délicate : comment vous y prenez-vous ?",
+   weight:1, options:[
+     {label:"Expliquer le besoin et la forme d’aide.", profil:"Garant"},
+     {label:"Demander franchement et proposer un timing.", profil:"Conquérant"},
+     {label:"Parler avec délicatesse et gratitude.", profil:"Bienveillant"},
+     {label:"Clarifier l’engagement demandé.", profil:"Fiable"},
+     {label:"Situer le sens de la demande.", profil:"Visionnaire"},
+     {label:"Rester simple et sympathique.", profil:"Spontané"}
+   ]},
+  {prompt:"53. Énergie sociale faible : action courte mais utile ?",
+   weight:1, options:[
+     {label:"Une interaction prévue et courte.", profil:"Garant"},
+     {label:"Un message direct pour renouer.", profil:"Conquérant"},
+     {label:"Un moment doux avec une personne clé.", profil:"Bienveillant"},
+     {label:"Dire non au reste, sans culpabiliser.", profil:"Fiable"},
+     {label:"Une intention claire pour la rencontre.", profil:"Visionnaire"},
+     {label:"Apéro simple, léger, sans friction.", profil:"Spontané"}
+   ]},
+
+  // Développement / Carrière
+  {prompt:"54. Monter en compétence : par quoi commencez-vous ?",
+   weight:1, options:[
+     {label:"Plan 30 jours avec jalons.", profil:"Garant"},
+     {label:"Projet réel court pour apprendre vite.", profil:"Conquérant"},
+     {label:"Pairing ou mentorat léger.", profil:"Bienveillant"},
+     {label:"Engagement clair de pratique.", profil:"Fiable"},
+     {label:"Modèle mental simple, visualisé.", profil:"Visionnaire"},
+     {label:"Format fun (vidéo/exercice rapide).", profil:"Spontané"}
+   ]},
+  {prompt:"55. Préparer un entretien d’embauche : première étape ?",
+   weight:1, options:[
+     {label:"Dossier preuves/impacts trié.", profil:"Garant"},
+     {label:"Pitch 60 secondes maîtrisé.", profil:"Conquérant"},
+     {label:"Simulation avec un allié.", profil:"Bienveillant"},
+     {label:"Vérifier cohérence valeurs/poste.", profil:"Fiable"},
+     {label:"Carte mentale des réponses clés.", profil:"Visionnaire"},
+     {label:"Entraînement express en conditions.", profil:"Spontané"}
+   ]},
+  {prompt:"56. Construire votre portfolio : que faites-vous d’abord ?",
+   weight:1, options:[
+     {label:"Sommaire + 3 cas bien rédigés.", profil:"Garant"},
+     {label:"Publier un premier exemple visible.", profil:"Conquérant"},
+     {label:"Recueillir 2 témoignages clients.", profil:"Bienveillant"},
+     {label:"Droits/accords/indicateurs au clair.", profil:"Fiable"},
+     {label:"Narratif simple : problème → solution → impact.", profil:"Visionnaire"},
+     {label:"Mettre en ligne une page simple.", profil:"Spontané"}
+   ]},
+  {prompt:"57. Demander du feedback à votre hiérarchie : quelle démarche ?",
+   weight:1, options:[
+     {label:"Questions précises + temps court.", profil:"Garant"},
+     {label:"Point direct, demande explicite.", profil:"Conquérant"},
+     {label:"Contexte positif et ouvert.", profil:"Bienveillant"},
+     {label:"Accord sur critères d’évaluation.", profil:"Fiable"},
+     {label:"1 objectif d’évolution clair.", profil:"Visionnaire"},
+     {label:"Échange rapide, concret.", profil:"Spontané"}
+   ]},
+  {prompt:"58. Reconstruire la confiance après un échec : quelle action ?",
+   weight:1, options:[
+     {label:"Revue factuelle + amélioration.", profil:"Garant"},
+     {label:"Livrer vite un succès mesurable.", profil:"Conquérant"},
+     {label:"Parler vrai, gratitude, relance.", profil:"Bienveillant"},
+     {label:"Assumer responsabilité, réparer juste.", profil:"Fiable"},
+     {label:"Redéfinir le cap utile.", profil:"Visionnaire"},
+     {label:"Petit projet visible rapidement.", profil:"Spontané"}
+   ]},
+  {prompt:"59. Plan de carrière à 12 mois : par quoi débutez-vous ?",
+   weight:1, options:[
+     {label:"Jalons trimestriels réalistes.", profil:"Garant"},
+     {label:"Un objectif ambitieux visible.", profil:"Conquérant"},
+     {label:"Alliés clés et sponsors.", profil:"Bienveillant"},
+     {label:"Engagements écrits, tenables.", profil:"Fiable"},
+     {label:"Vision claire en 3 axes.", profil:"Visionnaire"},
+     {label:"Premier pas simple ce mois-ci.", profil:"Spontané"}
+   ]},
+  {prompt:"60. Vous hésitez entre deux voies pro : que faites-vous d’abord ?",
+   weight:1, options:[
+     {label:"Tableau comparatif factuel.", profil:"Garant"},
+     {label:"Tester rapidement une des deux.", profil:"Conquérant"},
+     {label:"Parler avec deux personnes fiables.", profil:"Bienveillant"},
+     {label:"Vérifier l’éthique et la cohérence.", profil:"Fiable"},
+     {label:"Se projeter à 3 ans (scénario).", profil:"Visionnaire"},
+     {label:"Choisir celle qui met en mouvement.", profil:"Spontané"}
+   ]}
+];
+
+let answers=new Array(QUESTIONS.length).fill(null), current=0;
+let REPORTS={};
+fetch('reports_adult.json').then(r=>r.json()).then(j=>{REPORTS=j;});
+
+const $=s=>document.querySelector(s);
+document.getElementById('startBtn').onclick=function(){
+  document.getElementById('app').classList.remove('hidden'); renderQ();
+  window.scrollTo({top:document.querySelector('#app').offsetTop,behavior:'smooth'});
+};
+document.addEventListener('DOMContentLoaded',()=>{ const p=document.getElementById('print'); if(p) p.onclick=()=>window.print(); });
+
+function renderQ(){
+  const q=QUESTIONS[current]; if(!Array.isArray(answers[current])) answers[current]=[];
+  const ranked=answers[current]; const rankOf=i=>{const p=ranked.indexOf(i);return p===-1?null:p+1;};
+  const opts=q.options.map((o,i)=>`<div class="option ${rankOf(i)?'selected':''}" data-i="${i}">${o.label}${rankOf(i)?`<span class="rank-badge">${rankOf(i)}</span>`:''}</div>`).join('');
+  const nav=`<div class="nav"><button id="prev" ${current===0?'disabled':''}>Précédent</button><button id="next" ${(ranked.length<3||current===QUESTIONS.length-1)?'disabled':''}>Suivant</button><button id="finish" class="primary" ${(ranked.length<3||current!==QUESTIONS.length-1)?'disabled':''}>Terminer</button><span class="info">Question ${current+1}/${QUESTIONS.length} — Choix : ${ranked.length}</span></div>`;
+  document.getElementById('quiz').innerHTML=`<h3>${q.prompt}</h3><div class="answers">${opts}</div><p>Classez <b>3 à 6</b> réponses. L’ordre = votre préférence.</p>${nav}`;
+  document.querySelectorAll('.option').forEach(el=>{el.addEventListener('click',()=>{const i=+el.dataset.i;const p=ranked.indexOf(i); if(p===-1){if(ranked.length<6) ranked.push(i);} else {ranked.splice(p,1);} renderQ();});});
+  document.getElementById('prev').onclick=function(){ if(current>0){current--;renderQ();} };
+  document.getElementById('next').onclick=function(){ if(current<QUESTIONS.length-1 && ranked.length>=3){current++;renderQ();} };
+  document.getElementById('finish').onclick=function(){ if(ranked.length>=3){const r=compute();renderReport(r);window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});} };
+}
+
+function compute(){
+  const weights=[6,5,4,3,2,1], P=[...PROFILES];
+  const score=Object.fromEntries(P.map(p=>[p,0])), rank1=Object.fromEntries(P.map(p=>[p,0])), top2=Object.fromEntries(P.map(p=>[p,0]));
+  const Q=QUESTIONS.length;
+  QUESTIONS.forEach((q,qi)=>{const ranked=answers[qi]||[]; ranked.forEach((opt,idx)=>{ const p=q.options[opt].profil; score[p]+=(q.weight||1)*(weights[idx]||0); if(idx===0) rank1[p]+=1; if(idx<=1) top2[p]+=1; }); });
+  const ADN=Object.entries(score).sort((a,b)=>b[1]-a[1])[0][0];
+
+  const startIdx=Math.max(0,Q-Math.max(20,Math.floor(Q/3)));
+  const winScore=Object.fromEntries(P.map(p=>[p,0])), winTop2=Object.fromEntries(P.map(p=>[p,0])); const winLen=Q-startIdx;
+  for(let qi=startIdx;qi<Q;qi++){ const ranked=answers[qi]||[]; ranked.forEach((opt,idx)=>{ const p=QUESTIONS[qi].options[opt].profil; winScore[p]+=(QUESTIONS[qi].weight||1)*(weights[idx]||0); if(idx<=1) winTop2[p]+=1; }); }
+  let capCandidates=P.filter(p=>p!==ADN).map(p=>[p,winScore[p]]).sort((a,b)=>b[1]-a[1]); let CAP=null;
+  if(capCandidates.length){ const [p1,v1]=capCandidates[0]; const v2=capCandidates[1]?.[1]||0;
+    const condTop2=(winTop2[p1]/Math.max(1,winLen))>=0.30; const condDelta=(v2===0)?true:((v1-v2)/Math.max(1,v2)>=0.05);
+    if(condTop2 && v1>0) CAP=p1;
+  }
+
+  const lived=P.filter(p=>p!==ADN && p!==CAP).map(function(p){
+    const s=top2[p]/Q; const e=rank1[p]/Q; const meanProxy=(Q-top2[p])/(Q||1)*3; const stable=meanProxy<=2.8;
+    const ok=(s>=0.35 || e>=0.15) && stable; return {p,ok,raw:score[p]};
+  }).filter(x=>x.ok).sort((a,b)=>b.raw-a.raw).map(x=>x.p).slice(0,2);
+
+  const ADNraw=Math.max(score[ADN],1); const perc=Object.fromEntries(P.map(p=>[p,Math.round((score[p]/ADNraw)*80)]));
+  perc[ADN]=100; lived.forEach(p=>perc[p]=100); if(CAP) perc[CAP]=Math.max(60,Math.min(95,perc[CAP]));
+  P.forEach(function(p){ if(p!==ADN && p!==CAP && !lived.includes(p)){ perc[p]=Math.min((CAP?perc[CAP]-1:95), perc[p]); } perc[p]=Math.max(0,Math.min(100,perc[p])); });
+  return {ADN,CAP,lived,perc,score};
+}
+
+function narrativeFor(adn, cap){
+  const key=adn+"|"+(cap||adn); const R=REPORTS[key];
+  if(!R) return "<p>Votre narratif détaillé est en cours de chargement…</p>";
+  let html="";
+  (R.sections||[]).forEach(s=>{
+    if(s.title) html+=`<h3>${s.title}</h3>`;
+    if(s.body) s.body.forEach(p=>html+=`<p>${p}</p>`);
+    if(s.list) html+=`<ul>${(s.list||[]).map(x=>`<li>${x}</li>`).join("")}</ul>`;
+  });
+  return html;
+}
+
+function renderReport(r){
+  document.getElementById('report').classList.remove('hidden');
+  document.getElementById('badgeADN').textContent='ADN : '+r.ADN; document.getElementById('badgeCAP').textContent='Cap actuel : '+(r.CAP||r.ADN);
+  document.getElementById('kpiADN').textContent=r.ADN; document.getElementById('kpiCAP').textContent=r.CAP||'—'; document.getElementById('kpiLived').textContent=r.lived.length?r.lived.join(', '):'—';
+
+  const tb=document.querySelector('#resultTable tbody'); tb.innerHTML='';
+  PROFILES.forEach(function(p){ const rep=(p===r.ADN?'❤️':(p===r.CAP?'⭐':(r.lived.includes(p)?'⚪':''))); const tr=document.createElement('tr'); tr.innerHTML='<td>'+p+'</td><td>'+r.perc[p]+'%</td><td>'+rep+'</td>'; tb.appendChild(tr); });
+
+  const vals = PROFILES.map(l=>r.perc[l]||0);
+  const c1=document.querySelector('#etoile').getContext('2d'); if(window.drawRadarStar) drawRadarStar(c1, PROFILES, vals);
+  const c2=document.querySelector('#boussole').getContext('2d'); if(window.drawCompass) drawCompass(c2, r.perc);
+  const c3=document.querySelector('#pyramide').getContext('2d'); if(window.drawPyramid) drawPyramid(c3);
+
+  document.getElementById('welcome').innerHTML = '<p><strong>ADN :</strong> '+r.ADN+' — <strong>Cap actuel :</strong> '+(r.CAP||'—')+' — <strong>Caps vécus :</strong> '+(r.lived.join(', ')||'—')+'</p>';
+  document.getElementById('sections').innerHTML = narrativeFor(r.ADN, r.CAP||r.ADN);
+}
+</script>
+
+<!-- Visuels (étoile/boussole/pyramide). Gardez ce nom de fichier. -->
+<script src="visuals_patch.js"></script>
+</body>
+</html>
