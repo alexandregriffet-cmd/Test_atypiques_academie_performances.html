@@ -1,0 +1,1862 @@
+[
+  {
+    "prompt": "1. Un dossier prioritaire tombe à 17h, livraison demain midi : quelle est votre première action ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "2. Réunion avec un directeur dans 2 heures : comment vous préparez-vous ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "3. Votre équipe hésite entre deux solutions techniques : que faites-vous ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      }
+    ]
+  },
+  {
+    "prompt": "4. Vous devez annoncer un retard à un client : quelle démarche suivez-vous ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "5. Vous recevez un feedback négatif : comment réagissez-vous pour progresser ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      }
+    ]
+  },
+  {
+    "prompt": "6. Votre boîte à mails déborde : par quoi commencez-vous ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "7. Vous débutez un nouveau projet stratégique : quelle est votre première brique ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "8. Un conflit latent entre collègues nuit à l’avancement : que mettez-vous en place ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "9. Budget serré et délai court : quelle priorité choisissez-vous ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      }
+    ]
+  },
+  {
+    "prompt": "10. Vous devez déléguer une tâche sensible : comment procéder ?",
+    "weight": 1,
+    "domain": "travail",
+    "options": [
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "11. Compétition ce week‑end : quelle routine mettez-vous en place dès aujourd’hui ?",
+    "weight": 1,
+    "domain": "sport",
+    "options": [
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      }
+    ]
+  },
+  {
+    "prompt": "12. Votre coach change le plan au dernier moment : comment vous ajustez-vous ?",
+    "weight": 1,
+    "domain": "sport",
+    "options": [
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      }
+    ]
+  },
+  {
+    "prompt": "13. Après une contre‑performance : que décidez-vous pour rebondir ?",
+    "weight": 1,
+    "domain": "sport",
+    "options": [
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "14. Vous sentez la pression monter avant un match : que faites-vous concrètement ?",
+    "weight": 1,
+    "domain": "sport",
+    "options": [
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "15. Objectif d’endurance à 8 semaines : comment structurez-vous l’entraînement ?",
+    "weight": 1,
+    "domain": "sport",
+    "options": [
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "16. Organisation d’un week‑end familial : comment vous y prenez-vous ?",
+    "weight": 1,
+    "domain": "famille",
+    "options": [
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "17. Un proche traverse une période difficile : quelle est votre première attitude ?",
+    "weight": 1,
+    "domain": "famille",
+    "options": [
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "18. Gestion des soirs chargés (devoirs, repas, logistique) : comment fluidifiez-vous ?",
+    "weight": 1,
+    "domain": "famille",
+    "options": [
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      }
+    ]
+  },
+  {
+    "prompt": "19. Vous devez poser une limite importante à votre enfant : comment le faites-vous ?",
+    "weight": 1,
+    "domain": "famille",
+    "options": [
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      }
+    ]
+  },
+  {
+    "prompt": "20. Préparer les fêtes sans surcharge mentale : quelle méthode choisissez-vous ?",
+    "weight": 1,
+    "domain": "famille",
+    "options": [
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "21. Un ami vous sollicite pour un projet associatif : comment répondez-vous ?",
+    "weight": 1,
+    "domain": "amis",
+    "options": [
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      }
+    ]
+  },
+  {
+    "prompt": "22. Dans un groupe où les avis divergent : quelle posture prenez-vous ?",
+    "weight": 1,
+    "domain": "amis",
+    "options": [
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "23. Vous souhaitez relancer des liens amicaux un peu distendus : que faites-vous ?",
+    "weight": 1,
+    "domain": "amis",
+    "options": [
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "24. Vous visez une promotion dans 6 mois : quelle stratégie lancez-vous ?",
+    "weight": 1,
+    "domain": "carrière",
+    "options": [
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "25. Vous songez à une reconversion : premier pas concret ?",
+    "weight": 1,
+    "domain": "carrière",
+    "options": [
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      }
+    ]
+  },
+  {
+    "prompt": "26. Entretien annuel demain : comment vous préparez-vous intelligemment ?",
+    "weight": 1,
+    "domain": "carrière",
+    "options": [
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "27. Vous recevez une nouvelle mission hors zone de confort : que faites-vous d’abord ?",
+    "weight": 1,
+    "domain": "carrière",
+    "options": [
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "28. Trop de to‑dos, pas assez de temps : quelle méthode appliquez-vous ?",
+    "weight": 1,
+    "domain": "quotidien",
+    "options": [
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      }
+    ]
+  },
+  {
+    "prompt": "29. Un imprévu chamboule votre journée : comment reprenez-vous la main ?",
+    "weight": 1,
+    "domain": "quotidien",
+    "options": [
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "30. Vous devez apprendre un sujet complexe rapidement : comment vous y prenez-vous ?",
+    "weight": 1,
+    "domain": "quotidien",
+    "options": [
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      }
+    ]
+  },
+  {
+    "prompt": "31. Votre concentration baisse en milieu d’après‑midi : que faites-vous ?",
+    "weight": 1,
+    "domain": "quotidien",
+    "options": [
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "32. Vous devez tenir un engagement important : comment sécurisez-vous le respect du délai ?",
+    "weight": 1,
+    "domain": "quotidien",
+    "options": [
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "33. Vous êtes inondé(e) de notifications : quelle règle installez-vous ?",
+    "weight": 1,
+    "domain": "digital",
+    "options": [
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "34. Un outil numérique bloque une livraison : réaction immédiate ?",
+    "weight": 1,
+    "domain": "digital",
+    "options": [
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      }
+    ]
+  },
+  {
+    "prompt": "35. Collaboration à distance avec un nouveau partenaire : première étape ?",
+    "weight": 1,
+    "domain": "digital",
+    "options": [
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "36. On vous confie le lead d’un projet transversal : par quoi commencez-vous ?",
+    "weight": 1,
+    "domain": "leadership",
+    "options": [
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "37. Un arbitrage tranché est attendu : comment vous décidez ?",
+    "weight": 1,
+    "domain": "leadership",
+    "options": [
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      }
+    ]
+  },
+  {
+    "prompt": "38. L’équipe est démotivée : quel levier activez-vous en premier ?",
+    "weight": 1,
+    "domain": "leadership",
+    "options": [
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "39. Vous devez monter en compétence sur un nouveau sujet : quel plan suivez-vous ?",
+    "weight": 1,
+    "domain": "apprentissage",
+    "options": [
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      }
+    ]
+  },
+  {
+    "prompt": "40. Après une erreur publique : comment capitalisez-vous ?",
+    "weight": 1,
+    "domain": "apprentissage",
+    "options": [
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      }
+    ]
+  },
+  {
+    "prompt": "41. Vous voulez retrouver de l’énergie au quotidien : quelle routine démarrez-vous ?",
+    "weight": 1,
+    "domain": "santé",
+    "options": [
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "42. Sommeil en baisse depuis 10 jours : première mesure utile ?",
+    "weight": 1,
+    "domain": "santé",
+    "options": [
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      }
+    ]
+  },
+  {
+    "prompt": "43. On vous coupe la parole en réunion : que faites-vous ?",
+    "weight": 1,
+    "domain": "relations pro",
+    "options": [
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "44. Vous devez dire non sans abîmer la relation : comment formuler ?",
+    "weight": 1,
+    "domain": "relations pro",
+    "options": [
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "45. Une décision que vous jugez injuste est prise : quelle réaction constructive ?",
+    "weight": 1,
+    "domain": "relations pro",
+    "options": [
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "46. Vous souhaitez assainir votre budget : premier pas efficace ?",
+    "weight": 1,
+    "domain": "finance perso",
+    "options": [
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "47. Un achat important vous tente : quel processus de décision appliquez-vous ?",
+    "weight": 1,
+    "domain": "finance perso",
+    "options": [
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "48. Il faut trouver une idée originale pour une campagne : comment démarrez-vous ?",
+    "weight": 1,
+    "domain": "créativité",
+    "options": [
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      }
+    ]
+  },
+  {
+    "prompt": "49. Vous bloquez sur une slide clé : comment débloquez-vous ?",
+    "weight": 1,
+    "domain": "créativité",
+    "options": [
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "50. Incident critique en production : quelle est votre première action ?",
+    "weight": 1,
+    "domain": "crise",
+    "options": [
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      }
+    ]
+  },
+  {
+    "prompt": "51. Bad buzz sur les réseaux : que faites-vous dans l’heure ?",
+    "weight": 1,
+    "domain": "crise",
+    "options": [
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      }
+    ]
+  },
+  {
+    "prompt": "52. Vous voulez développer votre réseau pro : quelle routine mettez-vous en place ?",
+    "weight": 1,
+    "domain": "réseau",
+    "options": [
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "53. Événement de networking ce soir : objectif et méthode ?",
+    "weight": 1,
+    "domain": "réseau",
+    "options": [
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      }
+    ]
+  },
+  {
+    "prompt": "54. Un collaborateur performant montre des signes d’usure : que mettez-vous en place ?",
+    "weight": 1,
+    "domain": "management",
+    "options": [
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      }
+    ]
+  },
+  {
+    "prompt": "55. Vous devez faire un feed‑back difficile : comment vous y prenez-vous ?",
+    "weight": 1,
+    "domain": "management",
+    "options": [
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Prendre le lead et enlever l’obstacle n°1 immédiatement.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      }
+    ]
+  },
+  {
+    "prompt": "56. Négociation commerciale tendue : stratégie de départ ?",
+    "weight": 1,
+    "domain": "negociation",
+    "options": [
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier la consigne et sécuriser outils/documents avant d’agir.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Changer d’angle pour relancer l’énergie tout de suite.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      }
+    ]
+  },
+  {
+    "prompt": "57. Vous recevez une contre‑proposition : comment la traitez-vous ?",
+    "weight": 1,
+    "domain": "negociation",
+    "options": [
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Demander un avis court pour embarquer les personnes clés.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Établir une règle simple et tenable par tous puis avancer.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      }
+    ]
+  },
+  {
+    "prompt": "58. Une priorité concurrente apparaît : comment décidez-vous ce que vous faites en premier ?",
+    "weight": 1,
+    "domain": "général",
+    "options": [
+      {
+        "label": "Formuler une hypothèse et tester en petit format.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Rendre la tâche légère et démarrer par un micro‑pas.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      }
+    ]
+  },
+  {
+    "prompt": "59. Une priorité concurrente apparaît : comment décidez-vous ce que vous faites en premier ?",
+    "weight": 1,
+    "domain": "général",
+    "options": [
+      {
+        "label": "Structurer un plan simple à trois étapes et lancer la première.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Rappeler le cadre et répartir les rôles clairement.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Décider vite et poser un jalon visible à H+30.",
+        "profil": "Conquérant"
+      },
+      {
+        "label": "Clarifier le principe directeur avant de continuer.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Créer un climat serein et utile puis engager l’action.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      }
+    ]
+  },
+  {
+    "prompt": "60. Une priorité concurrente apparaît : comment décidez-vous ce que vous faites en premier ?",
+    "weight": 1,
+    "domain": "général",
+    "options": [
+      {
+        "label": "Schématiser l’essentiel et définir le résultat cible.",
+        "profil": "Visionnaire"
+      },
+      {
+        "label": "Prioriser par impact et délai puis exécuter sans détour.",
+        "profil": "Garant"
+      },
+      {
+        "label": "Mettre un chrono de 10 minutes et foncer.",
+        "profil": "Spontané"
+      },
+      {
+        "label": "Soigner la relation prioritaire avant d’accélérer.",
+        "profil": "Bienveillant"
+      },
+      {
+        "label": "Aligner la décision avec les engagements pris et s’y tenir.",
+        "profil": "Fiable"
+      },
+      {
+        "label": "Chercher le résultat tangible le plus rapide pour créer de l’élan.",
+        "profil": "Conquérant"
+      }
+    ]
+  }
+]
