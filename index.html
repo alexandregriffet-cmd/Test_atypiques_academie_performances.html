@@ -3,40 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Test cerveaux atypiques – v5 complet</title>
+  <title>Test cerveaux atypiques – v5 (rapport narratif complet)</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <header class="header header--pmp">
-  <img src="logo.png" class="brand-logo" alt="Logo"/>
-  <h1>Test de présomption – Cerveaux atypiques</h1>
-  <p>Version v5 – Rapport narratif complet intégré</p>
+  <img src="logo.png" class="brand-logo" alt="Logo Académie de Performances" />
+  <div class="titles center">
+    <h1>Test de présomption – Cerveaux atypiques</h1>
+    <p class="subtitle">Version v5 – Questionnaire 1×1 · Échelle 1→5 · Rapport narratif complet</p>
+  </div>
+  <p class="disclaimer center">⚠️ Outil de <strong>repérage</strong> (ASRS v1.1, AQ‑10, HSP/SPS, HAS/INSERM). Ne remplace pas une évaluation clinique.</p>
 </header>
+
 <main id="app">
   <section class="card intro">
     <h2>Informations</h2>
-    <label>Prénom <input id="inp_name" type="text"></label>
-    <label>Âge <input id="inp_age" type="number"></label>
+    <div class="grid two">
+      <label>Prénom <input id="inp_name" type="text" placeholder="Prénom" /></label>
+      <label>Âge <input id="inp_age" type="number" min="10" max="99" placeholder="16" /></label>
+    </div>
+    <div class="legend">
+      <p><strong>Échelle utilisée pour toutes les questions :</strong></p>
+      <ul>
+        <li>1️⃣ Pas du tout vrai</li>
+        <li>2️⃣ Rarement vrai</li>
+        <li>3️⃣ Parfois vrai</li>
+        <li>4️⃣ Souvent vrai</li>
+        <li>5️⃣ Tout à fait vrai</li>
+      </ul>
+    </div>
     <button id="start_btn">Commencer le test</button>
   </section>
+
   <section class="card runner hidden" id="runner">
-    <div id="progress_bar" class="progress-bar"></div>
-    <p id="step_label"></p>
+    <div class="progress"><div id="progress_bar" class="progress-bar"></div></div>
+    <p id="step_label" class="step-label"></p>
     <h2 id="domain_label"></h2>
-    <p id="question_text"></p>
-    <div id="scale_opts"></div>
-    <button id="prev_btn">Précédent</button>
-    <button id="next_btn">Suivant</button>
+    <div id="question_text" class="question"></div>
+    <div class="scale">
+      <label><input type="radio" name="answer" value="1"> 1 – Pas du tout vrai</label>
+      <label><input type="radio" name="answer" value="2"> 2 – Rarement vrai</label>
+      <label><input type="radio" name="answer" value="3"> 3 – Parfois vrai</label>
+      <label><input type="radio" name="answer" value="4"> 4 – Souvent vrai</label>
+      <label><input type="radio" name="answer" value="5"> 5 – Tout à fait vrai</label>
+    </div>
+    <div class="actions">
+      <button id="prev_btn" class="ghost">Précédent</button>
+      <button id="next_btn">Suivant</button>
+    </div>
   </section>
+
   <section class="card report hidden" id="report">
-    <h2>Rapport complet</h2>
-    <p id="rp_identity"></p>
-    <p id="rp_time"></p>
+    <div class="report-header">
+      <img src="logo.png" class="brand-logo small" alt="Logo" />
+      <h2>Rapport complet</h2>
+      <p id="rp_identity" class="identity"></p>
+      <p class="timestamp" id="rp_time"></p>
+    </div>
     <div id="rp_summary"></div>
     <div id="rp_sections"></div>
-    <button onclick="window.print()">🖨 Imprimer / PDF</button>
+    <div class="print-actions">
+      <button onclick="window.print()">🖨 Imprimer / Enregistrer en PDF</button>
+    </div>
   </section>
 </main>
+
+<footer class="footer">
+  <p>© Académie de Performances – Alexandre Griffet | Outil de repérage. Ne remplace pas un diagnostic.</p>
+</footer>
+
 <script src="app.js"></script>
 </body>
 </html>
